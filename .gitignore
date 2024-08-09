@@ -1,0 +1,5 @@
+# Exclude virtual environments
+.venv/
+
+# Exclude data directories
+data/

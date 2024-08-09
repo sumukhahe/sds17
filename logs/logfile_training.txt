@@ -1,0 +1,64 @@
+2024-05-03 15:24:15 - INFO - Data loaded successfully.
+2024-05-03 15:24:15 - INFO - Labels encoded for the response variable:
+2024-05-03 15:24:15 - WARNING - Column 'EmploymentType' has data type 'object'. Ignoring for pipeline creation.
+2024-05-03 15:24:15 - WARNING - Column 'ResidenceType' has data type 'object'. Ignoring for pipeline creation.
+2024-05-03 15:24:15 - WARNING - Column 'PreviousDefault' has data type 'object'. Ignoring for pipeline creation.
+2024-05-03 15:24:15 - INFO - Data pipeline created successfully:
+2024-05-03 15:24:15 - INFO - Data processing pipeline created and fitted.
+2024-05-03 15:24:15 - INFO - Pipeline saved to: data_processing_pipeline.pkl
+2024-05-03 15:24:15 - INFO - Data processing pipeline saved.
+2024-05-03 15:24:15 - INFO - Data is split into training and testing sets.
+2024-05-03 15:24:15 - INFO - Model trained successfully.
+2024-05-03 15:24:15 - INFO - Model successfully pickled.
+2024-05-03 15:24:16 - INFO - Confusion Matrix:
+           High  Low  Medium  Very High
+High        110  119     112        145
+Low         115   99     128        175
+Medium      125  117     105        168
+Very High   124   97     109        152
+2024-05-03 15:24:16 - INFO - Accuracy Score: 0.233000
+2024-05-03 15:24:16 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+        High       0.23      0.23      0.23       486
+         Low       0.23      0.19      0.21       517
+      Medium       0.23      0.20      0.22       515
+   Very High       0.24      0.32      0.27       482
+
+    accuracy                           0.23      2000
+   macro avg       0.23      0.23      0.23      2000
+weighted avg       0.23      0.23      0.23      2000
+
+2024-05-03 15:24:16 - INFO - Model training, prediction, and evaluation completed.
+2024-08-03 16:07:54 - INFO - Data loaded successfully.
+2024-08-03 16:07:54 - INFO - Labels encoded for the response variable:
+2024-08-03 16:07:54 - WARNING - Column 'EmploymentType' has data type 'object'. Ignoring for pipeline creation.
+2024-08-03 16:07:54 - WARNING - Column 'ResidenceType' has data type 'object'. Ignoring for pipeline creation.
+2024-08-03 16:07:54 - WARNING - Column 'PreviousDefault' has data type 'object'. Ignoring for pipeline creation.
+2024-08-03 16:07:54 - INFO - Data pipeline created successfully:
+2024-08-03 16:07:54 - INFO - Data processing pipeline created and fitted.
+2024-08-03 16:07:54 - INFO - Pipeline saved to: data_processing_pipeline.pkl
+2024-08-03 16:07:54 - INFO - Data processing pipeline saved.
+2024-08-03 16:07:54 - INFO - Data is split into training and testing sets.
+2024-08-03 16:07:55 - INFO - Model trained successfully.
+2024-08-03 16:07:55 - INFO - Model successfully pickled.
+2024-08-03 16:07:56 - INFO - Confusion Matrix:
+           High  Low  Medium  Very High
+High        110  119     112        145
+Low         115   99     128        175
+Medium      125  117     105        168
+Very High   124   97     109        152
+2024-08-03 16:07:56 - INFO - Accuracy Score: 0.233000
+2024-08-03 16:07:56 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+        High       0.23      0.23      0.23       486
+         Low       0.23      0.19      0.21       517
+      Medium       0.23      0.20      0.22       515
+   Very High       0.24      0.32      0.27       482
+
+    accuracy                           0.23      2000
+   macro avg       0.23      0.23      0.23      2000
+weighted avg       0.23      0.23      0.23      2000
+
+2024-08-03 16:07:56 - INFO - Model training, prediction, and evaluation completed.
