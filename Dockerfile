@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy the requirements file into the container at /app
-COPY requirements.txt .
+COPY requirements.txt ./
 
 # Install any needed packages specified in requirements.txt
 RUN python -m pip install --upgrade pip
@@ -18,7 +18,7 @@ COPY . .
 EXPOSE 8501
 
 # Define environment variable
-ENV NAME World
+# ENV NAME World
 
 # Run streamlit when the container launches
 CMD ["streamlit", "run", "scripts/app.py"]
