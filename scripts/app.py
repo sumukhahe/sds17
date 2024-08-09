@@ -30,12 +30,12 @@ page = st.sidebar.radio("Go to", ["Home", "Adhoc Risk Profiling", "Batch Profili
 # Layout: Image on the left, title on the right
 col1, col2 = st.columns([1, 3])
 with col1:
-    image = Image.open('images/risk-image2.jfif')  # Adjusted path
+    image = Image.open('risk-image2.jfif')  # Adjusted path
     st.image(image, use_column_width=True)
 
 with col2:
     st.title("Loan Risk Categorization")
-    image = Image.open('images/risk-image.png')  # Adjusted path
+    image = Image.open('risk-image.png')  # Adjusted path
 
 # Navigation logic
 if page == "Home":
