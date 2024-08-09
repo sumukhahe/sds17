@@ -3,19 +3,30 @@ from pydantic import BaseModel
 import pandas as pd
 import pickle
 import logging
+import os
 
 # Configure logging
 logging.basicConfig(
-    filename='C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/logs/logfile_API.txt',
+    filename=os.path.join('logs', 'logfile_API.txt'),  # Adjusted path
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
 # Load artifacts
-pipeline = pickle.load(open('C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/artifacts/data_processing_pipeline.pkl', 'rb'))
-model = pickle.load(open('C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/artifacts/best_classifier.pkl', 'rb'))
-label_encoder = pickle.load(open('C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/artifacts/label_encoder.pkl', 'rb'))
+def load_artifact(filename):
+    try:
+        with open(filename, 'rb') as file:
+            return pickle.load(file)
+    except FileNotFoundError as e:
+        logging.error(f"Artifact file not found: {filename}")
+        raise
+
+# Use environment variables or default paths
+artifacts_path = os.getenv('ARTIFACTS_PATH', 'artifacts')
+data_processing_pipeline = load_artifact(os.path.join(artifacts_path, 'data_processing_pipeline.pkl'))
+best_classifier = load_artifact(os.path.join(artifacts_path, 'best_classifier.pkl'))
+label_encoder = load_artifact(os.path.join(artifacts_path, 'label_encoder.pkl'))
 
 app = FastAPI()
 
@@ -38,11 +49,11 @@ async def batch_predict(request: BatchRequest):
             raise HTTPException(status_code=400, detail="Received empty DataFrame.")
         
         # Transform the input data
-        transformed_input = pipeline.transform(df)
+        transformed_input = data_processing_pipeline.transform(df)
         logging.info(f"Batch data transformed successfully")
         
         # Predict
-        predictions = model.predict(transformed_input)
+        predictions = best_classifier.predict(transformed_input)
         decoded_predictions = label_encoder.inverse_transform(predictions)
         logging.info(f"Batch predictions completed")
         
@@ -51,8 +62,10 @@ async def batch_predict(request: BatchRequest):
             raise HTTPException(status_code=500, detail="Predictions are empty.")
         
         # Save predictions to CSV
+        output_folder = os.path.join('Data', 'output')
+        os.makedirs(output_folder, exist_ok=True)
+        output_path = os.path.join(output_folder, 'batch_predictions.csv')
         result_df = pd.DataFrame(decoded_predictions, columns=['Predicted Risk Category'])
-        output_path = 'C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/Data/output/batch_predictions.csv'
         result_df.to_csv(output_path, index=False)
         logging.info(f"Batch predictions saved to {output_path}")
         

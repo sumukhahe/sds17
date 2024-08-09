@@ -6,9 +6,9 @@ import os
 from PIL import Image
 import logging
 
-# Configure logging to write to a file
+# Configure logging to write to a file in the current directory
 logging.basicConfig(
-    filename='C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/logs/logfile_UI.txt',  
+    filename='logs/logfile_UI.txt',  
     level=logging.DEBUG,      
     format='%(asctime)s - %(levelname)s - %(message)s',  
     datefmt='%Y-%m-%d %H:%M:%S'
@@ -30,12 +30,12 @@ page = st.sidebar.radio("Go to", ["Home", "Adhoc Risk Profiling", "Batch Profili
 # Layout: Image on the left, title on the right
 col1, col2 = st.columns([1, 3])
 with col1:
-    image = Image.open('C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/risk-image2.jfif')
+    image = Image.open('images/risk-image2.jfif')  # Adjusted path
     st.image(image, use_column_width=True)
 
 with col2:
     st.title("Loan Risk Categorization")
-    image = Image.open('C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/risk-image.png')
+    image = Image.open('images/risk-image.png')  # Adjusted path
 
 # Navigation logic
 if page == "Home":
@@ -53,9 +53,9 @@ elif page == "Adhoc Risk Profiling":
     previous_default = st.selectbox("Previous Default", ['Yes', 'No'])
 
     if st.button('Predict Risk Category'):
-        pipeline = load_artifact('C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/artifacts/data_processing_pipeline.pkl')
-        model = load_artifact('C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/artifacts/best_classifier.pkl')
-        label_encoder = load_artifact('C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/artifacts/label_encoder.pkl')
+        pipeline = load_artifact('artifacts/data_processing_pipeline.pkl')  # Adjusted path
+        model = load_artifact('artifacts/best_classifier.pkl')  # Adjusted path
+        label_encoder = load_artifact('artifacts/label_encoder.pkl')  # Adjusted path
 
         input_df = pd.DataFrame([[age, income, employment_type, residence_type, credit_score, loan_amount, loan_term, previous_default]],
                                 columns=['Age', 'Income', 'EmploymentType', 'ResidenceType', 'CreditScore', 'LoanAmount', 'LoanTerm', 'PreviousDefault'])
