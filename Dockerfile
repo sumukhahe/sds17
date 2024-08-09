@@ -9,7 +9,7 @@ COPY requirements.txt ./
 
 # Install any needed packages specified in requirements.txt
 RUN python -m pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Copy the rest of the application code into the container at /app
 COPY . .
@@ -18,7 +18,7 @@ COPY . .
 EXPOSE 8501
 
 # Define environment variable
-# ENV NAME World
+ENV NAME World
 
 # Run streamlit when the container launches
 CMD ["streamlit", "run", "scripts/app.py"]
