@@ -1,0 +1,11 @@
+2024-08-09 11:47:11 - INFO - Received batch request with 26 records.
+2024-08-09 11:47:11 - INFO - Batch data transformed successfully
+2024-08-09 11:47:11 - INFO - Batch predictions completed
+2024-08-09 11:50:21 - INFO - Received batch request with 26 records.
+2024-08-09 11:50:21 - INFO - Batch data transformed successfully
+2024-08-09 11:50:21 - INFO - Batch predictions completed
+2024-08-09 11:50:21 - ERROR - Error in batch prediction: Cannot save file into a non-existent directory: 'C:\Users\Admin\Desktop\Basudev\DSC\MLOPs\08-09\Data\output'
+2024-08-09 11:52:11 - INFO - Received batch request with 26 records.
+2024-08-09 11:52:11 - INFO - Batch data transformed successfully
+2024-08-09 11:52:11 - INFO - Batch predictions completed
+2024-08-09 11:52:11 - INFO - Batch predictions saved to C:/Users/Admin/Desktop/Basudev/DSC/MLOPs/08-09/Data/output/batch_predictions.csv
