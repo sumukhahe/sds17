@@ -41,7 +41,7 @@ with col2:
 if page == "Home":
     st.write("Welcome to the Loan Risk Categorization App.")
     st.write("updated file new repo")
-    st.write("updated file new repo2")
+    st.write("updated file new repo3")
     st.write("Use the sidebar to navigate to Adhoc or Batch Profiling.")
 elif page == "Adhoc Risk Profiling":
     st.header("Enter customer details:")
